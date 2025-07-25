@@ -1,0 +1,51 @@
+<div class="header">
+  <span class="text-3xl text-primary font-semibold">Mosqular MQTT</span>
+  <div class="flex justify-content-end gap-2 align-items-center">
+    <p-button
+      [icon]="isDarkMode() ? 'pi pi-moon' : 'pi pi-sun'"
+      (onClick)="toggleDarkMode()"
+      [rounded]="true"
+      size="small"
+      severity="secondary"
+    >
+    </p-button>
+    <p-select
+      [options]="languageOptions"
+      [ngModel]="currentLang$ | async"
+      (onChange)="onChangeLanguage($event.value)"
+    >
+      <ng-template #dropdownicon>
+        <i class="pi pi-globe"></i>
+      </ng-template>
+    </p-select>
+    <p-select
+      [options]="dateOptions"
+      [ngModel]="currentDateFormat$ | async"
+      (onChange)="onChangeDateFormat($event.value)"
+    >
+      <ng-template #dropdownicon>
+        <i class="pi pi-calendar"></i>
+      </ng-template>
+    </p-select>
+    <p-select
+      [options]="hourOptions"
+      [ngModel]="currentHourFormat$ | async"
+      (onChange)="onChangeTimeFormat($event.value)"
+    >
+      <ng-template #dropdownicon>
+        <i class="pi pi-clock"></i>
+      </ng-template>
+    </p-select>
+    <p-button
+      class="state-button"
+      [icon]="stateIcon()"
+      [label]="stateLabel() | translate"
+      [styleClass]="stateClass()"
+      (onClick)="showHistory()"
+    ></p-button>
+  </div>
+</div>
+
+<app-state-history-modal
+  [(visible)]="historyModalVisible"
+></app-state-history-modal>

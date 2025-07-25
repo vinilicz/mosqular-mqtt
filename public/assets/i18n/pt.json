@@ -1,0 +1,61 @@
+{
+  "COMMON": {
+    "YES": "Sim",
+    "NO": "Não",
+    "REMOVE": "Remover",
+    "CLEAR": "Limpar",
+    "SAVE": "Salvar",
+    "CANCEL": "Cancelar",
+    "NO_RESULTS": "Nenhum resultado",
+    "CONFIRMATION_HEADER": "Confirmação"
+  },
+  "SERVER": {
+    "NAME": "Nome",
+    "HOST": "Host",
+    "PROTOCOL": "Protocolo",
+    "USERNAME": "Usuário",
+    "PASSWORD": "Senha"
+  },
+  "MQTT": {
+    "TOPIC": "Tópico",
+    "MESSAGE": "Mensagem",
+    "QOS": "Qualidade de Serviço"
+  },
+  "CLIENT": {
+    "START": "Iniciar",
+    "STOP": "Parar",
+    "CONNECTED": "Conectado",
+    "DISCONNECTED": "Desconectado",
+    "CONNECTING": "Conectando",
+    "ERROR": "Erro",
+    "UNKNOWN": "Desconhecido",
+    "SERVER": "Servidor",
+    "SERVERS_LIST": "Lista de Servidores",
+    "PUBLISH": "Publicar",
+    "RETAIN": "Reter",
+    "IGNORE_RETAINED": "Ignorar retido",
+    "CONNECTION_HISTORY": "Histórico de Conexão",
+    "ADD_OBSERVER": "Adicionar Observador",
+    "CLEAR_OBSERVERS": "Remover Observadores",
+    "CLEAR_MESSAGES": "Limpar Mensagens",
+    "FORMAT_JSON": "Formatar JSON",
+    "MESSAGE_DETAILS": "Detalhes da Mensagem",
+    "MESSAGE_DETAILS_PLACEHOLDER": "Clique em uma mensagem para ver os detalhes",
+    "STOP_MQTT_DIALOG_MESSAGE": "Parar irá remover todos os observadores. Tem certeza que deseja continuar?",
+    "TOPIC_CONFLICT_TITLE": "Conflito de Tópico",
+    "TOPIC_CONFLICT_MESSAGE": "Este tópico se sobrepõe a um já utilizado por {{name}}. Por favor, escolha um tópico mais específico.",
+    "SERVER_CONFLICT_TITLE": "Conflito de Servidor",
+    "SERVER_CONFLICT_MESSAGE": "Já existe um servidor com o mesmo nome ou host ({{name}}).",
+    "LATEST_MESSAGE_BUTTON_TOOLTIP": "Mostrar detalhes da última mensagem automaticamente",
+    "COPIED": "Copiado para a área de transferência",
+    "COPY_FAILED": "Falha ao copiar para a área de transferência"
+  },
+  "OBSERVER": {
+    "TOPIC": "Tópico:",
+    "MESSAGES": "Mensagens:",
+    "SECONDS": "{{seconds}}s",
+    "REMOVE_DIALOG_MESSAGE": "Tem certeza que deseja remover este observador?",
+    "CLEAR_MESSAGES_DIALOG_MESSAGE": "Tem certeza que deseja limpar todas as mensagens?",
+    "CLEAR_OBSERVERS_DIALOG_MESSAGE": "Tem certeza que deseja remover todos os observadores?"
+  }
+}

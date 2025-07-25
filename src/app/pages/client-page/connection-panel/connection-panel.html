@@ -1,0 +1,90 @@
+<div class="flex justify-content-between align-items-center gap-2">
+  <div class="flex gap-2 align-items-center">
+    <p-button
+      icon="pi pi-bars"
+      (onClick)="listServers()"
+      size="small"
+      [disabled]="isStarted$ | async"
+    ></p-button>
+    <p-button
+      icon="pi pi-plus"
+      (onClick)="addServer()"
+      size="small"
+      [disabled]="isStarted$ | async"
+    ></p-button>
+    <div class="flex align-items-center gap-2">
+      <p-float-label variant="in">
+        <p-select
+          class="servers-select"
+          [options]="serverOptions()"
+          [(ngModel)]="selectedServer"
+          inputId="serverInput"
+          [emptyMessage]="'COMMON.NO_RESULTS' | translate"
+          styleClass="w-min-8rem"
+          [filter]="serverOptions().length > 6"
+          [disabled]="(isStarted$ | async)!"
+        >
+          <ng-template #item let-option>
+            <div
+              class="flex gap-2 justify-content-between w-full align-items-center gap-3"
+            >
+              <span>{{ option.label }}</span>
+              <div class="flex gap-2">
+                <p-button
+                  size="small"
+                  icon="pi pi-pen-to-square"
+                  (onClick)="editServer(option.value, $event)"
+                ></p-button>
+                <p-button
+                  size="small"
+                  severity="danger"
+                  icon="pi pi-trash"
+                  (onClick)="confirmRemoveServer(option.value, $event)"
+                ></p-button>
+              </div>
+            </div>
+          </ng-template>
+        </p-select>
+        <label for="serverInput">{{ "CLIENT.SERVER" | translate }}</label>
+      </p-float-label>
+      <p-float-label variant="in">
+        <p-input-number
+          class="keep-alive-input"
+          [(ngModel)]="selectedKeepAlive"
+          [min]="0"
+          [max]="1000"
+          inputId="keepAlive"
+          [disabled]="(isStarted$ | async)!"
+        ></p-input-number>
+        <label for="keepAlive">keep alive</label>
+      </p-float-label>
+    </div>
+  </div>
+  @if (isStarted$ | async) {
+    <p-button
+      icon="pi pi-pause"
+      [label]="'CLIENT.STOP' | translate"
+      (onClick)="stopMqtt()"
+    ></p-button>
+  } @else {
+    <p-button
+      icon="pi pi-play"
+      [label]="'CLIENT.START' | translate"
+      (onClick)="startMqtt()"
+      [disabled]="!selectedServer() || (isStarted$ | async)"
+    ></p-button>
+  }
+</div>
+
+<app-update-server-modal
+  [(visible)]="updateServerModalVisible"
+  (save)="onSaveServer($event)"
+  [baseServer]="updateServer()"
+>
+</app-update-server-modal>
+<app-servers-list-modal
+  [(visible)]="serversListModalVisible"
+  [options]="serverOptions()"
+  (save)="onSaveServersList($event)"
+>
+</app-servers-list-modal>

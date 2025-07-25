@@ -1,0 +1,40 @@
+<div class="flex flex-column gap-2">
+  <input
+    type="text"
+    [maxLength]="200"
+    pInputText
+    [placeholder]="'MQTT.TOPIC' | translate"
+    [(ngModel)]="topic"
+  />
+  <textarea
+    #messageTextArea
+    pTextarea
+    rows="5"
+    [maxlength]="1000"
+    [placeholder]="'MQTT.MESSAGE' | translate"
+    [(ngModel)]="message"
+  ></textarea>
+  <div class="flex justify-content-between align-items-center flex-wrap gap-3">
+    <div class="flex align-items-center gap-3 flex-wrap">
+      <p-select
+        [options]="qosOptions"
+        [(ngModel)]="selectedQos"
+        placeholder="QoS"
+      ></p-select>
+      <div class="flex gap-2 align-items-center">
+        <label for="retainInput">{{ "CLIENT.RETAIN" | translate }}</label>
+        <p-check-box
+          inputId="retainInput"
+          [binary]="true"
+          [(ngModel)]="retain"
+        ></p-check-box>
+      </div>
+    </div>
+    <p-button
+      icon="pi pi-send"
+      [label]="'CLIENT.PUBLISH' | translate"
+      [disabled]="!canPublish()"
+      (onClick)="publish()"
+    ></p-button>
+  </div>
+</div>

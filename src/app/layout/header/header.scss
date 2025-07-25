@@ -1,0 +1,17 @@
+.header {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  min-height: 4rem;
+  gap: 0.5rem;
+  background-color: var(--surface-overlay);
+}
+
+:host ::ng-deep .state-button {
+  button {
+    transition: background-color 0.3s ease-in-out, 
+    border-color 0.3s ease-in-out;
+  }
+}

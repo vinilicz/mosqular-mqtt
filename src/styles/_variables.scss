@@ -1,0 +1,43 @@
+:root {
+  // --p-surface-50:  #fffefc !important;
+  // --p-surface-100: #fdfaf5 !important;
+  // --p-surface-200: #f4f0e7 !important;
+  // --p-surface-300: #eae5d9 !important;
+  // --p-surface-400: #d5cdbf !important;
+  // --p-surface-500: #bfb6a7 !important;
+  // --p-surface-600: #a99f91 !important;
+  // --p-surface-700: #948a7d !important;
+  // --p-surface-800: #7d7569 !important;
+  // --p-surface-900: #665f56 !important;
+  // --p-surface-950: #4f4941 !important;
+
+  // --p-content-background: var(--p-surface-300) !important;
+  // --p-content-hover-background: var(--p-surface-400) !important;
+  // --p-content-border-color: var(--p-surface-400) !important;
+
+  --p-content-background: var(--p-surface-50) !important;
+  --p-content-hover-background: var(--p-surface-300) !important;
+  --p-content-border-color: var(--p-surface-300) !important;
+
+  --p-text-color: var(--p-surface-700) !important;
+  --p-form-field-color: var(--p-surface-700) !important;
+
+  --surface-overlay: var(--p-content-background);
+  --surface-hover: var(--p-content-hover-background);
+  --surface-border: var(--p-surface-200);
+  --surface-ground: var(--p-surface-200);
+  --surface-selected: var(--p-primary-300);
+}
+
+:root.app-dark {
+  --p-content-background: var(--p-surface-900) !important;
+  --p-content-hover-background: var(--p-surface-600) !important;
+  --p-content-border-color: var(--p-surface-600) !important;
+
+  --p-text-color: var(--p-surface-200) !important;
+  --p-form-field-color: var(--p-surface-200) !important;
+
+  --surface-border: var(--p-surface-700);
+  --surface-ground: var(--p-surface-950);
+  --surface-selected: var(--p-primary-800);
+}

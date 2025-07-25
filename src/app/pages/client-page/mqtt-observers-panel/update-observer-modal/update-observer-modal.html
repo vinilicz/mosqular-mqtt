@@ -1,0 +1,38 @@
+<app-modal [(visible)]="visible" title="Observer" [draggable]="false">
+  <form [formGroup]="form" (ngSubmit)="onSave()">
+    <p-fluid>
+      <div class="field">
+        <label for="name">{{ "SERVER.NAME" | translate }}</label>
+        <input id="name" pInputText type="text" formControlName="name" />
+      </div>
+      <div class="field">
+        <label for="topic">{{ "MQTT.TOPIC" | translate }} *</label>
+        <input id="topic" pInputText type="text" formControlName="topic" />
+      </div>
+      <div class="field">
+        <label for="qos">{{ "MQTT.QOS" | translate }} (QoS)</label>
+        <p-select
+          id="qos"
+          [options]="qosOptions"
+          formControlName="qos"
+          appendTo="body"
+        ></p-select>
+      </div>
+      <div class="checkbox-field mb-4">
+        <p-check-box
+          inputId="ignoreRetained"
+          [binary]="true"
+          formControlName="ignoreRetained"
+        ></p-check-box>
+        <label for="ignoreRetained">{{
+          "CLIENT.IGNORE_RETAINED" | translate
+        }}</label>
+      </div>
+    </p-fluid>
+    <app-form-footer
+      [saveDisabled]="form.invalid"
+      (onSave)="onSave()"
+      (onCancel)="cancel()"
+    ></app-form-footer>
+  </form>
+</app-modal>

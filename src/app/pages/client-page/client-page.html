@@ -1,0 +1,34 @@
+<div class="flex flex-column w-full h-full gap-2">
+  <app-connection-panel></app-connection-panel>
+  <div class="flex-grow-1 overflow-y-auto">
+    <p-splitter [panelSizes]="[70, 30]" styleClass="h-full">
+      <ng-template pTemplate>
+        <app-mqtt-observers-panel
+          (selectMessage)="selectedMessage.set($event)"
+        ></app-mqtt-observers-panel>
+      </ng-template>
+      <ng-template pTemplate>
+        <div class="right-panel">
+          <p-accordion [multiple]="true" [value]="['0', '1']">
+            <p-accordion-panel value="0">
+              <p-accordion-header>
+                {{ "CLIENT.PUBLISH" | translate }}
+              </p-accordion-header>
+              <p-accordion-content>
+                <app-publish-panel></app-publish-panel>
+              </p-accordion-content>
+            </p-accordion-panel>
+            <p-accordion-panel value="1">
+              <p-accordion-header>
+                {{ "CLIENT.MESSAGE_DETAILS" | translate }}
+              </p-accordion-header>
+              <p-accordion-content>
+                <app-selected-message-panel></app-selected-message-panel>
+              </p-accordion-content>
+            </p-accordion-panel>
+          </p-accordion>
+        </div>
+      </ng-template>
+    </p-splitter>
+  </div>
+</div>

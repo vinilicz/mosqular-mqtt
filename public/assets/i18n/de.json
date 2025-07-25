@@ -1,0 +1,61 @@
+{
+  "COMMON": {
+    "YES": "Ja",
+    "NO": "Nein",
+    "REMOVE": "Entfernen",
+    "CLEAR": "Leeren",
+    "SAVE": "Speichern",
+    "CANCEL": "Abbrechen",
+    "NO_RESULTS": "Keine Ergebnisse",
+    "CONFIRMATION_HEADER": "Bestätigen"
+  },
+  "SERVER": {
+    "NAME": "Name",
+    "HOST": "Host",
+    "PROTOCOL": "Protokoll",
+    "USERNAME": "Benutzername",
+    "PASSWORD": "Passwort"
+  },
+  "MQTT": {
+    "TOPIC": "Thema",
+    "MESSAGE": "Nachricht",
+    "QOS": "Dienstqualität"
+  },
+  "CLIENT": {
+    "START": "Starten",
+    "STOP": "Stoppen",
+    "CONNECTED": "Verbunden",
+    "DISCONNECTED": "Getrennt",
+    "CONNECTING": "Verbinden",
+    "ERROR": "Fehler",
+    "UNKNOWN": "Unbekannt",
+    "SERVER": "Server",
+    "SERVERS_LIST": "Serverliste",
+    "PUBLISH": "Veröffentlichen",
+    "RETAIN": "Beibehalten",
+    "IGNORE_RETAINED": "Retain ignorieren",
+    "CONNECTION_HISTORY": "Verbindungsverlauf",
+    "ADD_OBSERVER": "Beobachter hinzufügen",
+    "CLEAR_OBSERVERS": "Beobachter entfernen",
+    "CLEAR_MESSAGES": "Nachrichten löschen",
+    "FORMAT_JSON": "JSON formatieren",
+    "MESSAGE_DETAILS": "Nachrichtendetails",
+    "MESSAGE_DETAILS_PLACEHOLDER": "Klicken Sie auf eine Nachricht, um Details anzuzeigen",
+    "STOP_MQTT_DIALOG_MESSAGE": "Das Stoppen entfernt alle Beobachter. Möchten Sie wirklich fortfahren?",
+    "TOPIC_CONFLICT_TITLE": "Themenkonflikt",
+    "TOPIC_CONFLICT_MESSAGE": "Dieses Thema überschneidet sich mit einem, das bereits von {{name}} verwendet wird. Bitte wählen Sie ein spezifischeres Thema.",
+    "SERVER_CONFLICT_TITLE": "Serverkonflikt",
+    "SERVER_CONFLICT_MESSAGE": "Ein Server mit demselben Namen oder Host existiert bereits ({{name}}).",
+    "LATEST_MESSAGE_BUTTON_TOOLTIP": "Letzte Nachrichtendetails automatisch anzeigen",
+    "COPIED": "In die Zwischenablage kopiert",
+    "COPY_FAILED": "Kopieren in die Zwischenablage fehlgeschlagen"
+  },
+  "OBSERVER": {
+    "TOPIC": "Thema:",
+    "MESSAGES": "Nachrichten:",
+    "SECONDS": "{{seconds}} Sek.",
+    "REMOVE_DIALOG_MESSAGE": "Möchten Sie diesen Beobachter wirklich entfernen?",
+    "CLEAR_MESSAGES_DIALOG_MESSAGE": "Möchten Sie wirklich alle Nachrichten löschen?",
+    "CLEAR_OBSERVERS_DIALOG_MESSAGE": "Möchten Sie wirklich alle Beobachter entfernen?"
+  }
+}

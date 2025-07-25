@@ -1,0 +1,27 @@
+<app-modal
+  [(visible)]="visible"
+  [title]="'CLIENT.SERVERS_LIST' | translate"
+  [draggable]="false"
+>
+  <div class="flex flex-column gap-4">
+    <p-order-list [value]="list()" [dragdrop]="true" [metaKeySelection]="false">
+      <ng-template let-option pTemplate="item" let-index="index">
+        <div class="flex align-items-center w-full gap-2">
+          <span class="text-primary">{{ index + 1 }}</span>
+          <span> {{ option.label }} </span>
+        </div>
+      </ng-template>
+    </p-order-list>
+    <div class="flex gap-2 justify-content-end">
+      <p-button
+        [label]="'COMMON.CANCEL' | translate"
+        severity="secondary"
+        (onClick)="cancel()"
+      ></p-button>
+      <p-button
+        [label]="'COMMON.SAVE' | translate"
+        (onClick)="onSave()"
+      ></p-button>
+    </div>
+  </div>
+</app-modal>

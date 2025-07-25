@@ -1,0 +1,67 @@
+<div class="flex flex-column w-full h-full">
+  <div
+    class="flex gap-2 justify-content-between align-items-center p-1 flex-wrap border-bottom-1 surface-border"
+  >
+    <div class="flex align-items-center gap-1">
+      <p-button
+        size="small"
+        styleClass="p-1"
+        [label]="'CLIENT.ADD_OBSERVER' | translate"
+        (onClick)="addObserver()"
+        [disabled]="!isConnected()"
+      ></p-button>
+      <p-button
+        size="small"
+        styleClass="p-1"
+        [label]="'CLIENT.CLEAR_OBSERVERS' | translate"
+        severity="danger"
+        (onClick)="showClearObserversConfirmation()"
+        [disabled]="!isConnected()"
+      ></p-button>
+      <p-button
+        size="small"
+        styleClass="p-1"
+        [label]="'CLIENT.CLEAR_MESSAGES' | translate"
+        severity="secondary"
+        (onClick)="showClearMessagesConfirmation()"
+        [disabled]="!isConnected()"
+      ></p-button>
+    </div>
+    <div class="column-options">
+      <i class="pi pi-arrows-h"></i>
+      <p-select-button
+        [options]="colOptions"
+        [allowEmpty]="false"
+        [(ngModel)]="selectedColClass"
+      ></p-select-button>
+    </div>
+  </div>
+  <div class="surface-ground flex-grow-1 overflow-y-auto relative flex p-1">
+    <div class="h-full overflow-y-auto w-full">
+      <div class="observers-grid overflow-y-auto">
+        @for (observer of observers$ | async; track observer.id) {
+          <div class="observer-col h-22rem" [ngClass]="selectedColClass()">
+            <app-mqtt-observer-card
+              [observer]="observer"
+              (toggleMaximized)="setMaximized(observer)"
+            ></app-mqtt-observer-card>
+          </div>
+        }
+      </div>
+    </div>
+    @if (maximizedObserver()) {
+      <div class="maximized-overlay" [@fadeOut]>
+        <app-mqtt-observer-card
+          [maximized]="true"
+          [observer]="maximizedObserver()!"
+          (toggleMaximized)="setMaximized()"
+        ></app-mqtt-observer-card>
+      </div>
+    }
+  </div>
+</div>
+
+<app-update-observer-modal
+  [(visible)]="updateObserverModalVisible"
+  (save)="saveObserver($event)"
+></app-update-observer-modal>

@@ -1,0 +1,9 @@
+.servers-select {
+  min-width: 8rem;
+}
+
+::ng-deep .keep-alive-input {
+  input {
+    width: 6rem !important;
+  }
+}

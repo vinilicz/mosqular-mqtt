@@ -1,0 +1,22 @@
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  gap: 0.5rem;
+}
+
+.surface-ground {
+  background: var(--surface-ground) !important;
+}
+
+.card {
+  background: var(--surface-overlay);
+  border: 1px solid var(--surface-border);
+  padding: 2rem;
+  border-radius: 8px;
+}

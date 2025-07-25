@@ -1,0 +1,43 @@
+@if (message()) {
+  <div class="flex flex-column gap-2">
+    <div class="flex justify-content-between">
+      <span>{{ "OBSERVER.TOPIC" | translate }} {{ message()!.topic }}</span>
+      <p-button
+        icon="pi pi-times"
+        severity="danger"
+        [text]="true"
+        styleClass="p-0 h-1rem"
+        size="small"
+        (onClick)="clear()"
+      ></p-button>
+    </div>
+    <span class="text-sm text-color-secondary">
+      {{ message()!.createdAt | localizeDate: "fulldatetime" }}</span
+    >
+    <div class="card p-1 surface-ground h-7rem overflow-auto">
+      <pre class="m-0">{{
+        formatJson() ? (message()!.payload | formatJson) : message()!.payload
+      }}</pre>
+    </div>
+    <div class="flex align-items-center justify-content-between h-1rem">
+      <p-button
+        icon="pi pi-copy"
+        [text]="true"
+        styleClass="p-0"
+        (onClick)="copyPayload()"
+      ></p-button>
+      <div class="flex justify-content-end gap-2 align-items-center">
+        <label for="formatJson">{{ "CLIENT.FORMAT_JSON" | translate }}</label>
+        <p-checkBox
+          [(ngModel)]="formatJson"
+          inputId="formatJson"
+          [binary]="true"
+        ></p-checkBox>
+      </div>
+    </div>
+  </div>
+} @else {
+  <span class="text-color-secondary">
+    {{ "CLIENT.MESSAGE_DETAILS_PLACEHOLDER" | translate }}
+  </span>
+}

@@ -1,0 +1,67 @@
+<app-modal [(visible)]="visible" [title]="'CLIENT.SERVER' | translate">
+  <form [formGroup]="form" (ngSubmit)="onSave()" class="w-20rem">
+    <p-fluid>
+      <div class="field">
+        <label for="name">{{ "SERVER.NAME" | translate }}</label>
+        <input
+          #nameInput
+          pInputText
+          id="name"
+          type="text"
+          formControlName="name"
+        />
+      </div>
+      <p-divider></p-divider>
+      <div class="field">
+        <label for="serverprotocol">{{ "SERVER.PROTOCOL" | translate }}</label>
+        <p-select
+          id="serverprotocol"
+          [options]="protocolOptions"
+          appendTo="body"
+          optionValue="value"
+          styleClass="px-0"
+          formControlName="protocol"
+        ></p-select>
+      </div>
+      <div class="field">
+        <label for="serverhost">{{ "SERVER.HOST" | translate }} *</label>
+        <input pInputText id="serverhost" formControlName="host" />
+      </div>
+      @if (url()) {
+        <div class="url">
+          <span class="text-xs text-color-secondary">{{ url() }}</span>
+        </div>
+      }
+      <div class="field">
+        <label for="serverusername">{{ "SERVER.USERNAME" | translate }}</label>
+        <input pInputText id="serverusername" formControlName="username" />
+      </div>
+      <div class="field">
+        <label for="serverpassword">{{ "SERVER.PASSWORD" | translate }}</label>
+        <input
+          pInputText
+          id="serverpassword"
+          type="password"
+          formControlName="password"
+        />
+      </div>
+      <div class="field">
+        <label for="serverclientid">Client ID</label>
+        <input pInputText id="serverclientid" formControlName="clientId" />
+      </div>
+    </p-fluid>
+    <div class="flex justify-content-end gap-2 mt-4">
+      <p-button
+        type="button"
+        [label]="'COMMON.CANCEL' | translate"
+        (click)="cancel()"
+        severity="secondary"
+      ></p-button>
+      <p-button
+        type="submit"
+        [label]="'COMMON.SAVE' | translate"
+        [disabled]="form.invalid"
+      ></p-button>
+    </div>
+  </form>
+</app-modal>

@@ -1,0 +1,38 @@
+.message {
+  height: 18px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 2px;
+
+  &:not(.selected-message):hover {
+    background-color: var(--surface-hover);
+  }
+
+  &:not(.selected-message):focus {
+    outline: none;
+    background-color: var(--surface-hover);
+  }
+}
+
+.payload {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.name {
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.options-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.selected-message {
+  background-color: var(--surface-selected);
+}

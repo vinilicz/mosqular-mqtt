@@ -1,0 +1,17 @@
+@use "primeicons/primeicons.css";
+@use "primeflex/primeflex.css";
+@use "./styles/export.scss";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  margin: 0px;
+  background-color: var(--surface-ground);
+}
+
+app-root {
+  height: 100%;
+}

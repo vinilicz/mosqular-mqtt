@@ -1,0 +1,44 @@
+<app-modal
+  [(visible)]="visible"
+  [title]="'CLIENT.CONNECTION_HISTORY' | translate"
+>
+  <div class="h-25rem w-25rem">
+    @if (visible()) {
+      <cdk-virtual-scroll-viewport itemSize="22" class="h-full w-full">
+        <div *cdkVirtualFor="let item of items() | reverseArray">
+          <div class="state-item">
+            <div class="w-7">
+              <span>{{ item.date | localizeDate: "datelongtime" }}</span>
+            </div>
+            <div class="w-5">
+              <div class="flex gap-2 align-items-center">
+                @switch (item.state) {
+                  @case (MqttState.CLOSED) {
+                    <i class="pi pi-times-circle text-gray-500"></i>
+                    <span>{{ "CLIENT.DISCONNECTED" | translate }}</span>
+                  }
+                  @case (MqttState.CONNECTED) {
+                    <i class="pi pi-check-circle text-green-500"></i>
+                    <span>{{ "CLIENT.CONNECTED" | translate }}</span>
+                  }
+                  @case (MqttState.CONNECTING) {
+                    <i class="pi pi-sync text-orange-400"></i>
+                    <span>{{ "CLIENT.CONNECTING" | translate }}</span>
+                  }
+                  @case (MqttState.ERROR) {
+                    <i class="pi pi-unlock text-red-500"></i>
+                    <span>{{ "CLIENT.ERROR" | translate }}</span>
+                  }
+                  @default {
+                    <i class="pi pi-question-circle"></i>
+                    <span>{{ "CLIENT.UNKNOWN" | translate }}</span>
+                  }
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </cdk-virtual-scroll-viewport>
+    }
+  </div>
+</app-modal>

@@ -1,0 +1,61 @@
+{
+  "COMMON": {
+    "YES": "Yes",
+    "NO": "No",
+    "REMOVE": "Remove",
+    "CLEAR": "Clear",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "NO_RESULTS": "No results",
+    "CONFIRMATION_HEADER": "Confirm"
+  },
+  "SERVER": {
+    "NAME": "Name",
+    "HOST": "Host",
+    "PROTOCOL": "Protocol",
+    "USERNAME": "Username",
+    "PASSWORD": "Password"
+  },
+  "MQTT": {
+    "TOPIC": "Topic",
+    "MESSAGE": "Message",
+    "QOS": "Quality of Service"
+  },
+  "CLIENT": {
+    "START": "Start",
+    "STOP": "Stop",
+    "CONNECTED": "Connected",
+    "DISCONNECTED": "Disconnected",
+    "CONNECTING": "Connecting",
+    "ERROR": "Error",
+    "UNKNOWN": "Unknown",
+    "SERVER": "Server",
+    "SERVERS_LIST": "Servers List",
+    "PUBLISH": "Publish",
+    "RETAIN": "Retain",
+    "IGNORE_RETAINED": "Ignore retained",
+    "CONNECTION_HISTORY": "Connection History",
+    "ADD_OBSERVER": "Add Observer",
+    "CLEAR_OBSERVERS": "Clear Observers",
+    "CLEAR_MESSAGES": "Clear Messages",
+    "FORMAT_JSON": "Format JSON",
+    "MESSAGE_DETAILS": "Message Details",
+    "MESSAGE_DETAILS_PLACEHOLDER": "Click on a message to see its details",
+    "STOP_MQTT_DIALOG_MESSAGE": "Stopping will remove all observers. Are you sure you want to continue?",
+    "TOPIC_CONFLICT_TITLE": "Topic conflict",
+    "TOPIC_CONFLICT_MESSAGE": "This topic matches a pattern already used by {{name}}. Please choose another one.",
+    "SERVER_CONFLICT_TITLE": "Server conflict",
+    "SERVER_CONFLICT_MESSAGE": "A server with the same name or host already exists ({{name}}).",
+    "LATEST_MESSAGE_BUTTON_TOOLTIP": "Show latest message details automatically",
+    "COPIED": "Copied to clipboard",
+    "COPY_FAILED": "Failed to copy data to clipboard"
+  },
+  "OBSERVER": {
+    "TOPIC": "Topic:",
+    "MESSAGES": "Messages:",
+    "SECONDS": "{{seconds}}s",
+    "REMOVE_DIALOG_MESSAGE": "Are you sure you want to remove this observer?",
+    "CLEAR_MESSAGES_DIALOG_MESSAGE": "Are you sure you want to clear all messages?",
+    "CLEAR_OBSERVERS_DIALOG_MESSAGE": "Are you sure you want to clear all observers?"
+  }
+}

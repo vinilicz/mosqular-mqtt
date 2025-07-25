@@ -1,0 +1,90 @@
+<div class="card p-2 flex flex-column gap-2 relative h-full fadein">
+  <div class="options-panel card p-1">
+    <div class="flex gap-1">
+      <p-button
+        [icon]="
+          maximized()
+            ? 'pi pi-minus'
+            : 'pi pi-arrow-up-right-and-arrow-down-left-from-center'
+        "
+        styleClass="p-0"
+        (onClick)="toggleMaximize()"
+        size="small"
+      >
+      </p-button>
+      <p-button
+        icon="pi pi-times"
+        styleClass="p-0"
+        severity="danger"
+        size="small"
+        (onClick)="showRemoveDialog()"
+      ></p-button>
+    </div>
+  </div>
+  <span class="name">{{ observer().name }}</span>
+  <div class="flex flex-column gap-1 text-sm">
+    <span>{{ "OBSERVER.TOPIC" | translate }} {{ observer().topic }}</span>
+    <span>
+      {{ "OBSERVER.MESSAGES" | translate }}
+      {{ observer().messages().length }} ({{
+        "OBSERVER.SECONDS" | translate: { seconds: observer().averageDiff() }
+      }})
+    </span>
+  </div>
+  <div class="flex justify-content-between text-sm">
+    <span>{{ observer().createdAt | localizeDate }}</span>
+    <div class="flex align-items-center h-1rem">
+      <p-button
+        size="small"
+        [icon]="
+          trackedObserver()?.id === observer().id
+            ? 'pi pi-eye-slash'
+            : 'pi pi-eye'
+        "
+        [text]="true"
+        (onClick)="toggleTracked()"
+        [title]="'CLIENT.LATEST_MESSAGE_BUTTON_TOOLTIP' | translate "
+      ></p-button>
+      <p-button
+        size="small"
+        icon="pi pi-trash"
+        [text]="true"
+        severity="danger"
+        (onClick)="showClearMessagesDialog()"
+      ></p-button>
+    </div>
+  </div>
+  <div class="card p-1 text-sm flex-grow-1">
+    <cdk-virtual-scroll-viewport
+      #scrollContainer
+      itemSize="18"
+      class="h-full w-full"
+    >
+      <div
+        *cdkVirtualFor="
+          let message of this.observer().messages();
+          trackBy: trackById
+        "
+        class="message"
+        [ngClass]="{ 'selected-message': selectedMessage()?.id === message.id }"
+        tabindex="0"
+        (click)="selectMessage(message)"
+        (keydown.enter)="selectMessage(message)"
+        [title]="message.topic"
+      >
+        <div class="fadein">
+          <span class="white-space-nowrap">
+            {{ message.createdAt | localizeDate: "compactdatelongtime" }}
+            ({{ "OBSERVER.SECONDS" | translate: { seconds: message.diff } }})
+          </span>
+          @if (message.retained) {
+            <span class="text-xs pi pi-thumbtack"></span>
+          }
+          @if (message.payload) {
+            <span class="payload"> - {{ message.payload }}</span>
+          }
+        </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+</div>
