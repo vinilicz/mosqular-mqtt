@@ -7,7 +7,8 @@
 Mosqular MQTT is a web application built with **Angular** for monitoring and testing MQTT topics.  
 It provides real-time message observation, topic publishing, and easy saving and switching of multiple MQTT servers.
 
-**🌐 Use Online:** [mosqular-mqtt.vinilicz.com](https://mosqular-mqtt.vinilicz.com)
+**🌐 Use Online (wss only):**  
+**[mosqular-mqtt.vinilicz.com](https://mosqular-mqtt.vinilicz.com)**
 
 ---
 
