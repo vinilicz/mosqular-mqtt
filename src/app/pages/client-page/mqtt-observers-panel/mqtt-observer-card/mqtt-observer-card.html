@@ -72,7 +72,7 @@
         (keydown.enter)="selectMessage(message)"
         [title]="message.topic"
       >
-        <div class="fadein">
+        <div class="fadein flex align-items-center gap-1">
           <span class="white-space-nowrap">
             {{ message.createdAt | localizeDate: "compactdatelongtime" }}
             ({{ "OBSERVER.SECONDS" | translate: { seconds: message.diff } }})
@@ -81,7 +81,7 @@
             <span class="text-xs pi pi-thumbtack"></span>
           }
           @if (message.payload) {
-            <span class="payload"> - {{ message.payload }}</span>
+            <span class="payload">- {{ message.payload }}</span>
           }
         </div>
       </div>
