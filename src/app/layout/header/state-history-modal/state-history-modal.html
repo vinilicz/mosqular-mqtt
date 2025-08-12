@@ -26,7 +26,7 @@
                     <span>{{ "CLIENT.CONNECTING" | translate }}</span>
                   }
                   @case (MqttState.ERROR) {
-                    <i class="pi pi-unlock text-red-500"></i>
+                    <i class="pi pi-exclamation-circle text-red-500"></i>
                     <span>{{ "CLIENT.ERROR" | translate }}</span>
                   }
                   @default {
